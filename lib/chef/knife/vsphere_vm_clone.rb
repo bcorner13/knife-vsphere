@@ -185,7 +185,12 @@ class Chef::Knife::VsphereVmClone < Chef::Knife::BaseVsphereCommand
          long: '--bootstrap-proxy PROXY_URL',
          description: 'The proxy server for the node being bootstrapped',
          proc: proc { |p| Chef::Config[:knife][:bootstrap_proxy] = p }
-
+         
+  option :bootstrap_no_proxy,
+         long: '--bootstrap-no-proxy PROXY_URL',
+         description: 'The proxy server for the node being bootstrapped',
+         proc: proc { |n| Chef::Config[:knife][:bootstrap_no_proxy] = n }
+         
   option :bootstrap_vault_file,
          long: '--bootstrap-vault-file VAULT_FILE',
          description: 'A JSON file with a list of vault(s) and item(s) to be updated'
